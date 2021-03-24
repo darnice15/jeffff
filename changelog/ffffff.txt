@@ -1,0 +1,47 @@
+
+	// $myfile = fopen("newfile.xlsx", "r+") or die("Unable to open file!");
+	// $txt = "John Doe\n";
+	// fwrite($myfile, $txt);
+	// $txt = "Jane Doe\n";
+	// fwrite($myfile, $txt);
+	// echo fread($myfile,filesize("newfile.xlsx"));
+	// fclose($myfile);
+
+		echo "<tr>
+	    		<td>" . $row["application"] .  	" </td>
+	    		<td>" . $row["module"] . 		" </td> 
+    			<td>" . $row["description"] . 	" </td> 
+    			<td>" . $row["features"] . 		" </td> 
+    			<td>" . $row["remarks"] . 		" </td> 
+    			<td>" . $row["deployed_date"] .	"</td>
+	    	</tr>";
+
+
+`qamonitoring`.`reports_tbl` ( `application` TEXT NOT NULL , `module` TEXT NOT NULL , `description` TEXT NOT NULL , `features` TEXT NOT NULL , `remarks` TEXT NOT NULL , `deployed date` DATE NOT NULL ) ENGINE = InnoDB;
+
+
+
+
+<?
+
+	$list = array (
+	  array("Application", "Module" ,"Description", "Features", "Remarks", "Deployed Date" ),
+	  
+	  array("QA Monitoring", "Management Module", "Add module to include receiving of managers approval
+", "Add Registration", "Added", "Feb 3 2021")
+
+	);
+
+	$file = fopen("QAMonitoring_CL210203.csv","w");
+
+	foreach ($list as $line) {
+	  fputcsv($file, $line);
+	}
+
+
+	fclose($file);
+// This must generate a text file for the specific deployment date ex: QAMonitoring_CL210203 (Application_CLYEARMONTHDAY)
+
+
+
+?>
