@@ -10,6 +10,8 @@
 	  	array_push($ver,$row["version"]);
 	  	
 	  }
+	}else{
+		$ver[0]=0;
 	}
  ?>
 
@@ -22,7 +24,9 @@
 			<select class="" name="txtver" id="txtver" >
 				<option value="<?=number_format($ver[0],2) ?>" data-toggle="tooltip" data-placement="right" title="Current Version"> v<?=number_format($ver[0],2)?></option>
 				<option value="<?=number_format($ver[0]+0.01,2)?>" data-toggle="tooltip" data-placement="right" title="New Version"> v<?=number_format($ver[0]+0.01,2) ?></option> 
+			<?php if (mysqli_num_rows($result) > 0) { ?>
 				<option value="<?=number_format($ver[1],2)?>" data-toggle="tooltip" data-placement="right" title="Old Version"> v<?=number_format($ver[1],2)?></option> 
+			<?php } ?>
 			</select> 
 		</div> 
 		<div class="3u 12u$(xsmall)"> 

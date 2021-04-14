@@ -53,11 +53,11 @@ $sql = "SELECT DISTINCT application,version,deployed_date,modified_date FROM rep
 	  foreach ($list as $line) {
 		  fputcsv($file, $line);
 	  }
-
+	  fclose($file);
 	} else {
 	  echo "0 results";
 	}
-	fclose($file);
+	
 	mysqli_close($conn);
 
 
@@ -68,5 +68,5 @@ $sql = "SELECT DISTINCT application,version,deployed_date,modified_date FROM rep
 
 <script type="text/javascript">
 	alert("File Has been Generated!");
-	window.location.href="index.html";
+	window.location="index.html";
 </script>
